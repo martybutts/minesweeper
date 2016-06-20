@@ -28,14 +28,18 @@ var board = {cells: []};
 var arr = str.split('-');
 
 function getRow (element) {
-	for (var j = 0; j <element.length; j++) {
+	for (var j = 0; j < element.length; j++) {
 		if (element(j).classList.contains('row-')) {
 			return arr[1];
 		}
 	}
 }
 
-/*function getCol (element) {
-	for (var)
-}*/
+function getCol (element) {
+	for (var k = 0; k < element.length; k++) {
+		if (element(k).classList.contains('col-')) {
+			return arr[1];
+		}
+	}
+}
 
