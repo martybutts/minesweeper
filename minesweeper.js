@@ -24,7 +24,7 @@ function markCell (evt) {
 startGame()
 
 
-var board = {cells []};
+var board = {cells: []};
 var arr = str.split('-');
 
 function getRow (element) {
@@ -34,4 +34,8 @@ function getRow (element) {
 		}
 	}
 }
+
+/*function getCol (element) {
+	for (var)
+}*/
 
