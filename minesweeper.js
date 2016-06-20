@@ -22,3 +22,16 @@ function markCell (evt) {
 }
 
 startGame()
+
+
+var board = {cells []};
+var arr = str.split('-');
+
+function getRow (element) {
+	for (var j = 0; j <element.length; j++) {
+		if (element(j).classList.contains('row-')) {
+			return arr[1];
+		}
+	}
+}
+
