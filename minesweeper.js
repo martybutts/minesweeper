@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 function startGame () {
 	var boardChildren = document.getElementsByClassName('board')[0].children;
-	for (var i = 0; i < boardChildren.lenght; i++) {
+	for (var i = 0; i < boardChildren.length; i++) {
 		addListeners(boardChildren[i]);
 		addCellToBoard(boardChildren[i]);
 	}
-	console.log('board');
+	console.log(board);
 }
 
 function addListeners (element) {
@@ -33,8 +33,9 @@ var board = {
 function getRow (element) {
 	var className = element.classList;
 	for (var j = 0; j < className.length; j++) {
-		if (className[j].contains('row-')) {
-			return (className[j].str.split('-'))
+		if (className[j].includes('row-')) {
+			var nameParts = className[j].split('-')
+			return parseInt(nameParts[1], 10)
 		}
 	}
 }
@@ -42,8 +43,9 @@ function getRow (element) {
 function getCol (element) {
 	var className = element.classList;
 	for (var k = 0; k < className.length; k++) {
-		if (element[k].contains('col-')) {
-			return (classList[k].str.split('-'))
+		if (className[k].includes('col-')) {
+			var nameParts = className[k].split('-')
+			return parseInt(nameParts[1], 10)
 		}
 	}
 }
@@ -59,6 +61,8 @@ function addCellToBoard (el) {
 		else {
 			newCell.isMine = false;
 		}
+
 }
+		board.cells.push(newCell)
 
 
