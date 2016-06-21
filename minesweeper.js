@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 function startGame () {
 	addListeners(document.getElementsByClassName('board')[0].children)
+	addCellToBoard(document.getElementsByClassName('board')[0].children)
 }
 
 function addListeners (element) {
@@ -24,7 +25,7 @@ function markCell (evt) {
 startGame()
 
 
-var board = {cells: []};
+var board = {cells: [newCell]};
 var arr = str.split('-');
 
 function getRow (element) {
@@ -43,3 +44,17 @@ function getCol (element) {
 	}
 }
 
+function addCellToBoard (el) {
+	var newCell = {};
+		newCell.row = getRow(element)
+		newCell.col = getCol(element)
+		
+		if (el.classList.contains('mine')) {
+			newCell.mine = false;
+		}
+		else {
+			newCell.mine = true;
+		}
+	};
+
+}
