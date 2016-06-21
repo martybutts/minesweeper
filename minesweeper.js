@@ -2,8 +2,12 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 function startGame () {
-	addListeners(document.getElementsByClassName('board')[0].children)
-	addCellToBoard(document.getElementsByClassName('board')[0].children)
+	var boardChildren = document.getElementsByClassName('board')[0].children;
+	for (var i = 0; i < boardChildren.lenght; i++) {
+		addListeners(boardChildren[i]);
+		addCellToBoard(boardChildren[i]);
+	}
+	console.log('board');
 }
 
 function addListeners (element) {
@@ -22,39 +26,39 @@ function markCell (evt) {
 	evt.target.classList.toggle('marked')
 }
 
-startGame()
-
-
-var board = {cells: [newCell]};
-var arr = str.split('-');
+var board = {
+	cells: []
+};
 
 function getRow (element) {
-	for (var j = 0; j < element.length; j++) {
-		if (element(j).classList.contains('row-')) {
-			return arr[1];
+	var className = element.classList;
+	for (var j = 0; j < className.length; j++) {
+		if (className[j].contains('row-')) {
+			return (className[j].str.split('-'))
 		}
 	}
 }
 
 function getCol (element) {
-	for (var k = 0; k < element.length; k++) {
-		if (element(k).classList.contains('col-')) {
-			return arr[1];
+	var className = element.classList;
+	for (var k = 0; k < className.length; k++) {
+		if (element[k].contains('col-')) {
+			return (classList[k].str.split('-'))
 		}
 	}
 }
 
 function addCellToBoard (el) {
-	var newCell = {};
-		newCell.row = getRow(element)
-		newCell.col = getCol(element)
-		
+	var newCell = {}
+		newCell.row = getRow(el);
+		newCell.col = getCol(el);
+			
 		if (el.classList.contains('mine')) {
-			newCell.mine = false;
+			newCell.isMine = true;
 		}
 		else {
-			newCell.mine = true;
+			newCell.isMine = false;
 		}
-	};
-
 }
+
+
