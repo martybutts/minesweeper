@@ -11,10 +11,8 @@ function startGame () {
 }
 
 function addListeners (element) {
-	for (var i = 0; i < element.length; i++) {
-	element[i].addEventListener('click', showCell)
-	element[i].addEventListener('contextmenu', markCell)
-	}
+	element.addEventListener('click', showCell)
+	element.addEventListener('contextmenu', markCell)
 }
 
 function showCell (evt) {
@@ -62,7 +60,7 @@ function addCellToBoard (el) {
 			newCell.isMine = false;
 		}
 
-}
 		board.cells.push(newCell)
+}
 
 
